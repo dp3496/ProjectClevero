@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <script src="js/index.js"></script>
+</head>
+
+<body ng-app="myApp" onload="taskloader()">
+    <div class="col-sm-12 clear-side-padding logo-container">
+        <h2 class="jumbotron text-center col-sm-12">To-do Task Management</h2>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="col-sm-12">
+            <div class="row local-side-padding">
+                <div class="col-sm-12 pull-left">
+                    <!-- controller -->
+                    <div class="form-group" ng-controller="myCntrl">
+                        <div class="col-sm-1">
+                            <label for="search"><h3>Search:</h3></label>
+                        </div>
+                        <div class="clear-side-padding col-sm-11">
+                            <input type="text" id="search" placeholder=" Enter Event Name" class="form-contrl" style="height:1.1cm; width:70%" ng-change="myFunc()"
+                                ng-model="myValue" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-sm-1"></div>
+                    <div class="jumbotron searchlist col-sm-7 pull-left" id="demo">
+                    </div>
+                </div>
+                <div class="col-sm-12 clear-side-padding pull-left">
+                    <button type="button" class="btn btn-link btn-lg" data-toggle="modal" data-target="#myModal">
+                        <span class="glyphicon glyphicon-plus"></span> Add Task</button>
+                </div>
+            </div>
+            <!--div class="col-sm-4 clear-side-padding pull-right"></div-->
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="container">
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Task Creater</h4>
+                    </div>
+                    <div class="rows">
+                        <div class="modal-body">
+                            <form name="task" method="get" action="/update">
+                                <label for="taskname">
+                                    <div class="col-sm-4">Task Name:</div>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="taskname" required/>
+                                    </div>
+                                </label>
+                                <br/>
+                                <label for="taskdate">
+                                    <div class="col-sm-4">Task Date:</div>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="taskdate" id="datepicker" required/>
+                                    </div>
+                                </label>
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task View -->
+    <div class="container-fluid">
+        <div class="rows">
+            <div class="jumbotron col-sm-8">
+                <div class="logo-container">
+                    <h2>Yesterday</h2>
+                    <p id="yes"></p>
+                </div>
+                <div class="logo-container">
+                    <h2>Today</h2>
+                    <p id="tod"></p>
+                </div>
+                <div class="logo-container">
+                    <h2>Tomorrow</h2>
+                    <p id="tom"></p>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="rows">
+                    <div class="text-center col-sm-2">
+                        <h5>personal</h5>
+                    </div>
+                    <div class="text-center col-sm-1">
+                        <h5>work</h5>
+                    </div>
+                    <div class="text-center col-sm-2">
+                        <h5>Entertainment</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

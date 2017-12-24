@@ -1,0 +1,29 @@
+.clear-side-padding{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 10px !important;
+}
+
+.logo-container{
+    border-bottom: 2px solid black !important;
+}
+
+/*.container-fluid{
+    background-color: gray !important;
+}*/
+
+.searchlist{
+    display: none;
+    position: relative;
+    z-index: 1;
+}
+
+.modal-body{
+    height: 300px !important;
+}
+
+.local-side-padding{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 20px !important;
+}
